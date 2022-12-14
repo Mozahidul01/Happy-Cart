@@ -1,0 +1,28 @@
+.header {
+  background: #1d2b36;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 3px 50px;
+}
+
+.logo {
+  height: 65px;
+}
+
+.header-links {
+  display: flex;
+  gap: 21px;
+}
+
+.header-links a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 16px;
+  transition: 0.3s ease-in-out;
+}
+
+.header-links a:hover {
+  color: #ff9409;
+  text-decoration: none;
+}
