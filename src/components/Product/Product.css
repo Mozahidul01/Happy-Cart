@@ -29,7 +29,7 @@
 
 .product-price {
   font-size: 17px;
-  color: #ff9409;
+  color: #ff9900;
   font-weight: 600;
   margin-top: 5px;
 }
@@ -69,5 +69,5 @@
 }
 
 .add-to-cart-btn:hover {
-  background: #ff9409;
+  background: #ff9900;
 }

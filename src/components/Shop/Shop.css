@@ -1,7 +1,6 @@
 .shop-container {
   display: grid;
   grid-template-columns: 4fr 1fr;
-  padding: 10px;
   position: relative;
 }
 
@@ -15,7 +14,7 @@
 
 .cart-container {
   padding: 10px;
-  border: 1px solid #208080;
+  background: rgba(255, 153, 0, 0.16);
 }
 
 @media screen and (max-width:1200px) {
