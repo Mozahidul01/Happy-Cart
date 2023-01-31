@@ -1,13 +1,18 @@
 import React, { useEffect, useState } from "react";
 import Product from "../Product/Product";
 import Cart from "../Cart/Cart";
-import { addToDb, getStoredCart } from "../../utilities/fakedb";
+import { addToDb, deleteDb, getStoredCart } from "../../utilities/fakedb";
 import "./Shop.css";
 import { useLoaderData } from "react-router-dom";
 
 export default function Shop() {
   const { products } = useLoaderData();
   const [cart, setCart] = useState([]);
+
+  const clearCart = () => {
+    setCart([]);
+    deleteDb();
+  };
 
   useEffect(() => {
     const storedCart = getStoredCart();
@@ -54,7 +59,7 @@ export default function Shop() {
         ))}
       </div>
       <div className="cart-container">
-        <Cart cart={cart} />
+        <Cart cart={cart} clearCart={clearCart} />
       </div>
     </div>
   );

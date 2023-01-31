@@ -1,7 +1,8 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Cart.css";
 
-export default function Cart({ cart }) {
+export default function Cart({ cart, clearCart }) {
   let price = 0;
   let shipping = 0;
   let quantity = 0;
@@ -32,6 +33,14 @@ export default function Cart({ cart }) {
       <h4 className="cart-grand-total">
         Grand Total: <span>${grandTotal}</span>
       </h4>
+      <div className="cart-buttons">
+        <Link to="/orders" className="cart-checkout">
+          Checkout
+        </Link>
+        <button className="cart-clear" onClick={clearCart}>
+          Clear Cart
+        </button>
+      </div>
     </div>
   );
 }
