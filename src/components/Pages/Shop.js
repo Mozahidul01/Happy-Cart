@@ -1,18 +1,11 @@
-import React, { useEffect, useState } from "react";
-import Product from "../Product/Product";
-import Cart from "../Cart/Cart";
-import { addToDb, deleteDb, getStoredCart } from "../../utilities/fakedb";
-import "./Shop.css";
+import { useEffect, useState } from "react";
+import Product from "../Product";
+import { addToDb, getStoredCart } from "../../utilities/fakedb";
 import { useLoaderData } from "react-router-dom";
 
 export default function Shop() {
   const { products } = useLoaderData();
   const [cart, setCart] = useState([]);
-
-  const clearCart = () => {
-    setCart([]);
-    deleteDb();
-  };
 
   useEffect(() => {
     const storedCart = getStoredCart();
@@ -48,8 +41,8 @@ export default function Shop() {
   };
 
   return (
-    <div className="shop-container">
-      <div className="product-container">
+    <div className="bg-milk">
+      <div className="container mx-auto py-12 grid grid-cols-1 xl:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-4 lg:gap-6">
         {products.map((product) => (
           <Product
             key={product.id}
@@ -57,9 +50,6 @@ export default function Shop() {
             handleAddToCart={handleAddToCart}
           />
         ))}
-      </div>
-      <div className="cart-container">
-        <Cart cart={cart} clearCart={clearCart} />
       </div>
     </div>
   );

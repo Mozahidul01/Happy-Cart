@@ -1,10 +1,8 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useLoaderData } from "react-router-dom";
-import Cart from "../Cart/Cart";
-import ReviewItem from "../ReviewItem/ReviewItem";
+import Cart from "../Cart";
+import ReviewItem from "../ReviewItem";
 import { deleteDb, removeFromDb } from "../../utilities/fakedb";
-import "./Orders.css";
-
 export default function Orders() {
   const { initialCart } = useLoaderData();
   const [cart, setCart] = useState(initialCart);
@@ -21,10 +19,12 @@ export default function Orders() {
   };
 
   return (
-    <div className="orders-container">
-      <div className="orders-products">
+    <div className="container mx-auto grid lg:grid-cols-2">
+      <div className="m-6">
         {cart.length === 0 ? (
-          <h2>No Product for Review. Please Shop...</h2>
+          <h2 className="text-2xl font-bold text-center">
+            No Product for Review. Please Shop...
+          </h2>
         ) : (
           cart.map((product) => (
             <ReviewItem
@@ -35,7 +35,7 @@ export default function Orders() {
           ))
         )}
       </div>
-      <div className="orders-cart">
+      <div className="bg-milk mx-auto my-4 md:w-3/5 w-full max-h-max">
         <Cart cart={cart} clearCart={clearCart} />
       </div>
     </div>
