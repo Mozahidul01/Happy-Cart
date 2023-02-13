@@ -1,4 +1,4 @@
-import { CiShoppingCart } from "react-icons/ci";
+import { RiShoppingCartLine } from "react-icons/ri";
 
 export default function Product({ product, handleAddToCart }) {
   const { name, category, seller, price, ratings, img } = product;
@@ -24,7 +24,7 @@ export default function Product({ product, handleAddToCart }) {
             onClick={() => handleAddToCart(product)}
             className="btn bg-orange text-black border-0 gap-2 btn-md hover:bg-darkOrange"
           >
-            <CiShoppingCart className="text-2xl" />
+            <RiShoppingCartLine className="text-2xl" />
             <span>Add To Cart</span>
           </button>
         </div>

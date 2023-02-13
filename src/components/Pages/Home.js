@@ -4,7 +4,7 @@ import img from "../../images/hero.png";
 export default function Home() {
   return (
     <div className="bg-milk max-h-fit">
-      <div className="container min-h-[93vh] mx-auto flex flex-col lg:flex-row md:items-center pl-10">
+      <div className="container min-h-[93vh] mx-auto flex flex-col md:flex-row md:items-center pl-10">
         <div className="w-1/2 py-12">
           <h1 className="text-4xl md:text-7xl font-bold text-gray py-4">
             HUGE <br />

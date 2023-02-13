@@ -32,19 +32,13 @@ export default function Header() {
       <div className="navbar container mx-auto">
         <div className="navbar-start">
           {/* Mobile Menu */}
-          <div className="dropdown">
+          <div className="dropdown md:hidden">
             {mobileMenu ? (
-              <button
-                onClick={handleMobileMenu}
-                className="btn btn-ghost lg:hidden"
-              >
+              <button onClick={handleMobileMenu} className="btn btn-ghost ">
                 <RiCloseFill className="text-2xl" />
               </button>
             ) : (
-              <button
-                onClick={handleMobileMenu}
-                className="btn btn-ghost lg:hidden"
-              >
+              <button onClick={handleMobileMenu} className="btn btn-ghost">
                 <RiMenu2Line className="text-2xl" />
               </button>
             )}
@@ -87,7 +81,7 @@ export default function Header() {
         </div>
 
         {/* Desktop Menu */}
-        <div className="navbar-center hidden lg:flex">
+        <div className="navbar-center hidden md:flex">
           <ul className="menu menu-horizontal px-1 font-semibold">
             <li>
               <Link to="/">Home</Link>
