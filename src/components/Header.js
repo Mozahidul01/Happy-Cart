@@ -113,7 +113,7 @@ export default function Header() {
             </div>
           </div>
           {/* User Menu */}
-          {user && (
+          {user ? (
             <div className="dropdown dropdown-end">
               <label
                 tabIndex={0}
@@ -148,6 +148,10 @@ export default function Header() {
                 </li>
               </ul>
             </div>
+          ) : (
+            <Link to="/signup" className="btn btn-md px-6 btn-outline btn-info">
+              Sign Up
+            </Link>
           )}
         </div>
       </div>
