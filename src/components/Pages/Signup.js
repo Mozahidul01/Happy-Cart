@@ -25,7 +25,7 @@ export default function Signup() {
 
           <button
             type="submit"
-            className="btn px-8 bg-darkOrange font-bold border-0 my-4 hover:bg-gray-light"
+            className="btn px-8 bg-darkOrange text-black font-bold border-0 my-4 hover:bg-gray-light"
           >
             Sign Up
           </button>
