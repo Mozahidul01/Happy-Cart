@@ -5,10 +5,10 @@ import FormIcon from "../Form/FormIcon";
 
 export default function Login() {
   return (
-    <div className="form-section">
-      <div className="form-container">
+    <div className="h-max">
+      <div className="bg-milk rounded-md shadow-lg max-w-sm md:max-w-md mx-auto py-4 mt-20">
         <FormHeader title="log in" />
-        <form>
+        <form className="px-6">
           <FormControl
             htmlFor="email"
             label="Email"
@@ -22,17 +22,26 @@ export default function Login() {
             name="password"
           />
 
-          <button type="submit" className="form-btn">
+          <button
+            type="submit"
+            className="btn px-8 bg-darkOrange text-black font-bold border-0 my-4 hover:bg-gray-light"
+          >
             Log In
           </button>
         </form>
-        <div className="form-extra">
-          Don't have an account ?<Link to="/signup"> Create Account</Link>
+        <div className="text-center font-medium">
+          Don't have an account ?
+          <Link to="/signup" className="text-darkOrange">
+            {" "}
+            Create Account
+          </Link>
         </div>
 
         <div className="divider" />
 
-        <FormIcon />
+        <div className="px-6 py-3">
+          <FormIcon />
+        </div>
       </div>
     </div>
   );
