@@ -1,6 +1,4 @@
-import { Link } from "react-router-dom";
-
-export default function Cart({ cart, clearCart }) {
+export default function Cart({ cart, clearCart, children }) {
   let price = 0;
   let shipping = 0;
   let quantity = 0;
@@ -38,15 +36,10 @@ export default function Cart({ cart, clearCart }) {
         <span className="text-darkOrange font-bold">${grandTotal}</span>
       </h4>
       <div className="flex gap-4 flex-col">
-        <Link
-          to="/orders"
-          className="btn btn-md bg-orange border-none text-black hover:bg-darkOrange"
-        >
-          Checkout
-        </Link>
         <button className="btn btn-error btn-md" onClick={clearCart}>
           Clear Cart
         </button>
+        {children}
       </div>
     </div>
   );

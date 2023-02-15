@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import Cart from "../Cart";
 import ReviewItem from "../ReviewItem";
 import { deleteDb, removeFromDb } from "../../utilities/fakedb";
@@ -36,7 +36,13 @@ export default function Orders() {
         )}
       </div>
       <div className="bg-milk mx-auto my-4 md:w-3/5 w-full max-h-max">
-        <Cart cart={cart} clearCart={clearCart} />
+        <Cart cart={cart} clearCart={clearCart}>
+          <Link to="/shipping">
+            <button className="btn btn-md w-full bg-orange border-none text-black hover:bg-darkOrange">
+              Procss Shipping
+            </button>
+          </Link>
+        </Cart>
       </div>
     </div>
   );

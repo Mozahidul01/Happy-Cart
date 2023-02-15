@@ -5,7 +5,7 @@ import {
   RiShoppingCartLine,
   RiUser3Fill,
 } from "react-icons/ri";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useLoaderData } from "react-router-dom";
 import { deleteDb } from "../utilities/fakedb";
 import { AuthContext } from "../Context/UserContext";
@@ -16,7 +16,11 @@ export default function Header() {
   const { initialCart } = useLoaderData();
   const [cart, setCart] = useState(initialCart);
 
-  const { user } = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
+
+  const navigate = useNavigate();
+
+  const newUid = user?.uid.slice(0, 8);
 
   const handleMobileMenu = () => {
     setMobileMenu(!mobileMenu);
@@ -25,6 +29,17 @@ export default function Header() {
   const clearCart = () => {
     setCart([]);
     deleteDb();
+  };
+
+  const handleLogout = () => {
+    logOut()
+      .then(() => {
+        window.location.reload();
+        navigate("/");
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   };
 
   return (
@@ -108,7 +123,14 @@ export default function Header() {
               className="mt-3 card card-compact dropdown-content w-max shadow-lg"
             >
               <div className="card-body bg-white">
-                <Cart cart={cart} clearCart={clearCart} />
+                <Cart cart={cart} clearCart={clearCart}>
+                  <Link
+                    to="/orders"
+                    className="btn btn-md bg-orange border-none text-black hover:bg-darkOrange"
+                  >
+                    Checkout
+                  </Link>
+                </Cart>
               </div>
             </div>
           </div>
@@ -127,9 +149,11 @@ export default function Header() {
               >
                 <div className="flex flex-col justify-center items-center">
                   <RiUser3Fill className="w-9 h-9 mb-2" />
-                  <p className="font-semibold capitalize">displayName</p>
-                  <p className="text-sm mb-2">email</p>
-                  <p className="text-xs capitalize">Student Id: uid</p>
+                  <p className="font-semibold capitalize">
+                    {user?.displayName || "No Name"}
+                  </p>
+                  <p className="text-sm mb-2">{user?.email}</p>
+                  <p className="text-xs capitalize">Student Id: {newUid}</p>
                 </div>
                 <div className="divider" />
                 <li>
@@ -139,12 +163,12 @@ export default function Header() {
                   <Link to="/">Settings</Link>
                 </li>
                 <li>
-                  <Link
-                    to="/"
+                  <button
+                    onClick={handleLogout}
                     className="bg-error my-2 hover:bg-error-content hover:text-white"
                   >
                     Logout
-                  </Link>
+                  </button>
                 </li>
               </ul>
             </div>
