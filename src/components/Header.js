@@ -145,7 +145,7 @@ export default function Header() {
               </label>
               <ul
                 tabIndex={0}
-                className="menu menu-compact dropdown-content mt-3 py-4 px-2 shadow bg-white text-black font-semibold rounded-box w-52 z-20"
+                className="menu menu-compact dropdown-content mt-3 py-4 px-2 shadow bg-white text-black font-semibold rounded-box w-64 z-20"
               >
                 <div className="flex flex-col justify-center items-center">
                   <RiUser3Fill className="w-9 h-9 mb-2" />
